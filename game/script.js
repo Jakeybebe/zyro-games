@@ -269,7 +269,7 @@ function draw() {
         ctx.fillStyle = "rgba(0,0,0,0.8)"; ctx.fillRect(0,0,width,height);
         ctx.fillStyle = "white"; ctx.textAlign = "center"; ctx.font = "30px Arial";
         ctx.fillText(`CRASHED! Deaths: ${deaths}`, width/2, height/2);
-        ctx.font = "20px Arial"; ctx.fillText("Press Space to Retry", width/2, height/2 + 40);
+        ctx.font = "20px Arial"; ctx.fillText("Press Space to Retry!", width/2, height/2 + 40);
     }
     if (flashAlpha > 0) { ctx.fillStyle = `rgba(255,255,255,${flashAlpha})`; ctx.fillRect(0,0,width,height); }
     ctx.restore();
