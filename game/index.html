@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dash</title>
+    <style>
+        body { margin: 0; padding: 0; overflow: hidden; background: #111; font-family: 'Segoe UI', sans-serif; }
+        canvas { display: block; }
+        
+        #ui-layer {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            pointer-events: none;
+            z-index: 10;
+        }
+        #level-indicator { color: white; font-weight: bold; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 8px; }
+        #progress-container {
+            width: 40%;
+            height: 14px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid white;
+            border-radius: 7px;
+            overflow: hidden;
+        }
+        #progress-fill { width: 0%; height: 100%; background: #00FFCC; transition: width 0.1s linear; }
+        #percentage-text { color: white; font-weight: bold; font-size: 16px; margin-top: 5px; }
+
+        /* Menu Layer */
+        #menu-layer {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #00FFCC;
+            z-index: 20;
+            color: white;
+        }
+        .skin-btn {
+            width: 40px;
+            height: 40px;
+            margin: 10px;
+            cursor: pointer;
+            border: 2px solid white;
+            display: inline-block;
+        }
+        #hard-mode-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            cursor: pointer;
+            background: #333;
+            color: white;
+            border: 2px solid #00FFCC;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="ui-layer">
+        <div id="level-indicator">Level 1</div>
+        <div id="progress-container"><div id="progress-fill"></div></div>
+        <div id="percentage-text">0%</div>
+    </div>
+
+    <div id="menu-layer">
+        <h1>JS DASH</h1>
+        <p>Select Skin Color:</p>
+        <div id="skin-selector">
+            <div class="skin-btn" style="background: #00FFCC;" onclick="setSkin('#00FFCC')"></div>
+            <div class="skin-btn" style="background: #FF3366;" onclick="setSkin('#FF3366')"></div>
+            <div class="skin-btn" style="background: #FFCC00;" onclick="setSkin('#FFCC00')"></div>
+            <div class="skin-btn" style="background: #A020F0;" onclick="setSkin('#A020F0')"></div>
+        </div>
+        <button id="hard-mode-btn">Hard Mode: OFF</button>
+        <p>Press SPACE to Start</p>
+    </div>
+    
+    <canvas id="gameCanvas"></canvas>
+    <script src="script.js"></script>
+</body>
+</html>
